@@ -56,13 +56,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Twitter</a>
+                <a class="nav-link disabled" aria-current="page" href="#">Twitter</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Resume</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Blog</a>
+                <a class="nav-link active" href="#" tabindex="-1">Blog</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -86,40 +86,26 @@
 </header>
 
 <main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hi, I am Grzegorz</h1>
-        <p class="lead text-muted">My name is Grzegorz and I prepare now Django-based website, this is my first trial</p>
-        <p>
-          <a href="mailto:gkbednarski@gmail.com" class="btn btn-primary my-2">send email to me!</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
     <div class="container">
+    <h1 class ='text-center pt-3'>Welcome to Grzegorz Blog</h1>
+    <br/>
+    <br>
+    <h2>Latest Posts</h2>
+    <hr>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        
-        {%  for job in jobs.all %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="20vh" height="15vh" role="img" aria-label="Placeholder: Thumbnail"focusable="true"><img src="{{ job.image.url }}"/></svg>
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-              </div>
+    {% for blog in blogs.all %}
+        <a href=""><h3>{{ blog.title }}</h3></a>
+        {{ blog.pub_date}}
+        <div class="card shadow-sm">
+          <img class="img-fluid" height=100 width=200 src="{{ blog.image.url }}"/>
+
+          <div class="card-body">
+            <p class="card-text">{{blog.body}}</p>
             </div>
           </div>
-        </div>
-
-        {% endfor %}
-
+    {% endfor %}
     </div>
-  </div>
-
+</main>
 </main>
 
 <footer class="text-muted py-5">
