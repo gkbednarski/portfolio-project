@@ -55,7 +55,7 @@ coverage.xml
 *.log
 .static_storage/
 .media/
-myproject/local_settings.py
+portfolio/local_settings.py
 .migrations/
 
 # Flask stuff:
